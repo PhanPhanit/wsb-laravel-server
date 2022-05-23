@@ -15,7 +15,10 @@ use App\Http\Controllers\SocialiteController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $app_url = env('APP_URL');
+    return view('documentation', [
+        "app_url" => $app_url
+    ]);
 });
 
 Route::controller(SocialiteController::class)->prefix('api/v1/auth')->group(function(){

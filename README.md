@@ -70,6 +70,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 
 
+
 ## wsb-laravel
 
 
@@ -125,10 +126,6 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
   * [Get Single Product](#6-get-single-product)
   * [Increase View Product](#7-increase-view-product)
   * [Update Product](#8-update-product)
-
-* [Response Cookie](#response-cookie)
-
-  * [Cookie](#1-cookie)
 
 * [Review](#review)
 
@@ -1081,34 +1078,6 @@ URL: {{URLLA}}/wsb-pro/2
 
 
 
-## Response Cookie
-
-
-
-### 1. Cookie
-
-
-
-***Endpoint:***
-
-```bash
-Method: POST
-Type: RAW
-URL: {{URL}}/wsb-res-cookie
-```
-
-
-
-***Body:***
-
-```js        
-{
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWQ1NjdkOTgwNDNhMGM0YzM1OTJiZmYiLCJuYW1lIjoiUEhBTiBQSEFOSVQiLCJlbWFpbCI6InBoYW5waGFuaXQucHAxMjM0NUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IiIsImdvb2dsZUlkIjoiMTA1MzA3NTQ0NjE1NzM0MjEyMzUxIiwiZmFjZWJvb2tJZCI6IiIsInJvbGUiOiJ1c2VyIiwiaXNBY3RpdmUiOnRydWUsIl9fdiI6MCwiaWF0IjoxNjQ3MTc4NjIyLCJleHAiOjE2NDg5Nzg2MjJ9.cqp5ol98t8o4xpJUkXq8hHdCJBjChjNivXlOheudlaM"
-}
-```
-
-
-
 ## Review
 
 
@@ -1732,5 +1701,4 @@ URL: {{URLLA}}/users/updateUserPassword
 
 ---
 [Back to top](#wsb-laravel)
-> Made with &#9829; by [thedevsaddam](https://github.com/thedevsaddam) | Generated at: 2022-05-23 09:27:19 by [docgen](https://github.com/thedevsaddam/docgen)
-
+> Made with &#9829; by [thedevsaddam](https://github.com/thedevsaddam) | Generated at: 2022-05-23 10:14:32 by [docgen](https://github.com/thedevsaddam/docgen)
