@@ -16,7 +16,7 @@ class SocialiteController extends Controller
     }
     public function googleCallback()
     {
-        $googleUser = Socialite::driver('google')->user();
+        $googleUser = Socialite::driver('google')->stateless()->user();
 
 
         $role = '';

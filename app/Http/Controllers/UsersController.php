@@ -96,7 +96,7 @@ class UsersController extends Controller
         $users = $query->skip($skip)->take($limit)->get();
 
         return response()->json([
-            "users" => $users,
+            "user" => $users,
             "count" => count($users),
             "currentPage" => $page,
             "totalPage" => $totalPage,
@@ -112,8 +112,14 @@ class UsersController extends Controller
                 ], 401);
             }
         }
+        $user = User::where('id', '=', $userId)->first();
+        if(!$user){
+            return response([
+                'message' => 'No user with id: ' . $userId
+            ], 404);
+        }
         return response()->json([
-            "user" => User::where('id', '=', $userId)->first()
+            "user" => $user
         ]);
     }
     public function showCurrentUser(Request $request)
@@ -243,6 +249,20 @@ class UsersController extends Controller
         $totalUser = $query->count();
         return response([
             'totalUser' => $totalUser
+        ], 200);
+    }
+
+    public function deleteUser($userId)
+    {
+        $user = User::find($userId);
+        if(!$user){
+            return response([
+                'message' => 'No user with id: ' . $userId
+            ], 404);
+        }
+        $user->delete();
+        return response([
+            'message' => 'Success! User has been removed.'
         ], 200);
     }
 }

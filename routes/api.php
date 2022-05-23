@@ -42,6 +42,7 @@ Route::prefix('v1/users')->group(function(){
     Route::patch('/updateUserPassword', [UsersController::class, 'updateUserPassword'])->middleware('auth:sanctum');
     Route::patch('/updateUser', [UsersController::class, 'updateUser'])->middleware('auth:sanctum');
     Route::patch('/{user}', [UsersController::class, 'adminUpdateUser'])->middleware('auth:sanctum');
+    Route::delete('/{user}', [UsersController::class, 'deleteUser'])->middleware(['auth:sanctum', 'authorizePermission:admin']);
 });
 // Category route
 Route::controller(CategoryController::class)->prefix('v1/wsb-cate')->group(function(){
