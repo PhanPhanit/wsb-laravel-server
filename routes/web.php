@@ -15,7 +15,7 @@ use App\Http\Controllers\SocialiteController;
 */
 
 Route::get('/', function () {
-    $app_url = env('APP_URL');
+    $app_url = env('APP_URL')."/api/v1";
     return view('documentation', [
         "app_url" => $app_url
     ]);
