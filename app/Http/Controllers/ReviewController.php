@@ -58,8 +58,8 @@ class ReviewController extends Controller
         $updateProduct = DB::table('reviews')
             ->select(DB::raw('count(*) as numOfReviews, round(avg(rating),1) as averageRating'))
             ->where('product', '=', $request->input('product'))
-            ->get();
-        return $updateProduct[0]->numofreviews;
+            ->first();
+        return $updateProduct->numofreviews;
         // $product->numOfReviews = $updateProduct->numOfReviews;
         // $product->averageRating = $updateProduct->averageRating;
         // $product->save();
