@@ -66,7 +66,7 @@ class ReviewController extends Controller
         return response([
             "productNumOfReview" => $productNumOfReview,
             "productAverageRating" => $productAverageRating,
-            "updateProduct" => $updateProduct->id
+            "updateProduct" => $updateProduct->rating
         ], 200);
 
         // $product->numOfReviews = $updateProduct->numOfReviews;
