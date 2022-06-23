@@ -61,7 +61,7 @@ class ReviewController extends Controller
             ->get();
         
         $productNumOfReview = Review::where('product', '=', $request->input('product'))->count();
-        $productAverageRating = Review::where('product', '=', $request->input('product'))->avg('averageRating');
+        $productAverageRating = Review::where('product', '=', $request->input('product'))->avg('rating');
         return response([
             "productNumOfReview" => $productNumOfReview,
             "productAverageRating" => $productAverageRating,
