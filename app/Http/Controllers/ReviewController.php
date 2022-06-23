@@ -60,9 +60,10 @@ class ReviewController extends Controller
             ->where('product', '=', $request->input('product'))
             ->first();
 
-        $product->numOfReviews = $updateProduct->numOfReviews;
-        $product->averageRating = $updateProduct->averageRating;
-        $product->save();
+        // $product->numOfReviews = $updateProduct->numOfReviews;
+        // $product->averageRating = $updateProduct->averageRating;
+        // $product->save();
+        return $product;
         return response([
             'review' => Review::find($review->id)
         ], 201);
