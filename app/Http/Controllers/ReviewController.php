@@ -42,11 +42,11 @@ class ReviewController extends Controller
             ['user', '=', $request->user()->id]
         ])->first();
 
-        // if($alreadySubmited){
-        //     return response([
-        //         'message' => 'Already submitted review for this product'
-        //     ], 400);
-        // }
+        if($alreadySubmited){
+            return response([
+                'message' => 'Already submitted review for this product'
+            ], 400);
+        }
 
         $review = Review::create([
             'rating' => $request->input('rating'),
@@ -54,17 +54,10 @@ class ReviewController extends Controller
             'user' => $request->user()->id,
             'product' => $request->input('product')
         ]);
-
-        // $updateProduct = DB::table('reviews')
-        //     ->select(DB::raw('count(*) as numOfReviews, round(avg(rating),1) as averageRating'))
-        //     ->where('product', '=', $request->input('product'))
-        //     ->first();
-
         $updateProduct = DB::table('reviews')
             ->select(DB::raw('count(*) as num_of_reviews'), DB::raw('round(avg(rating),1) as average_rating'))
             ->where('product', '=', $request->input('product'))
             ->first();
-
         $product->numOfReviews = $updateProduct->num_of_reviews;
         $product->averageRating = $updateProduct->average_rating;
         $product->save();
