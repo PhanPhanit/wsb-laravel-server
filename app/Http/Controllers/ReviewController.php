@@ -42,11 +42,11 @@ class ReviewController extends Controller
             ['user', '=', $request->user()->id]
         ])->first();
 
-        if($alreadySubmited){
-            return response([
-                'message' => 'Already submitted review for this product'
-            ], 400);
-        }
+        // if($alreadySubmited){
+        //     return response([
+        //         'message' => 'Already submitted review for this product'
+        //     ], 400);
+        // }
 
         $review = Review::create([
             'rating' => $request->input('rating'),
