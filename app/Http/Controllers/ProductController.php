@@ -70,7 +70,7 @@ class ProductController extends Controller
         $query = Product::where('isShow', '=', true);
         if($request->filled('search')){
             $search = $request->input('search');
-            $query = $query->where('id', $search)
+            $query = $query->where('id', is_numeric($search)?$search:null)
                 ->orWhere('name', 'like', '%'.$search.'%')
                 ->orWhere('author', 'like', '%'.$search.'%')
                 ->orWhere('publisher', 'like', '%'.$search.'%')
