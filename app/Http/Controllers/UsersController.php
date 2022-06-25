@@ -57,7 +57,7 @@ class UsersController extends Controller
         $query = new User;
         if($request->filled('search')){
             $search = $request->input('search');
-            $query = $query->where('id', $search)
+            $query = $query->where('id', is_numeric($search)?$search:null)
                 ->orWhere('name', 'like', '%'.$search.'%')
                 ->orWhere('email', 'like', '%'.$search.'%')
                 ->orWhere('role', '=', $search)

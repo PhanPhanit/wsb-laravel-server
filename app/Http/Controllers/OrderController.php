@@ -85,7 +85,7 @@ class OrderController extends Controller
         $query = Order::with('orderItem', 'user');
         if($request->filled('search')){
             $search = $request->input('search');
-            $query = $query->where('id', $search)
+            $query = $query->where('id', is_numeric($search)?$search:null)
                 ->orWhere('paymentIntent', 'like', '%'.$search.'%')
                 ->orWhere('phoneNumber', 'like', '%'.$search.'%')
                 ->orWhere('city', 'like', '%'.$search.'%')
