@@ -106,7 +106,7 @@ class ProductController extends Controller
         }
 
         // $totalProduct = $query->count();
-        return "Hello";
+        return $query->get();
         $page = $request->input('page')?(int) $request->input('page') : 1;
         $limit = $request->input('limit')?(int) $request->input('limit') : 10;
         $skip = ($page-1) * $limit;
