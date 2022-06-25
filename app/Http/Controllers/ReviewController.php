@@ -77,6 +77,11 @@ class ReviewController extends Controller
         if($request->filled('product')){
             $query = $query->where('product', '=', $request->input('product'));
         }
+        if($request->filled('rating')){
+            if($request->input('ratiing') !== 'all'){
+                $query = $query->where('rating', '=', $request->input('rating'));
+            }
+        }
         if($request->has('populate')){
             $populateArray = explode(",", $request->input('populate'));
             foreach($populateArray as $populate){
