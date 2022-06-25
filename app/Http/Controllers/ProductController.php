@@ -105,7 +105,8 @@ class ProductController extends Controller
             $query = $query->orderBy($field, $sort);
         }
 
-        $totalProduct = $query->count();
+        // $totalProduct = $query->count();
+        return "Hello";
         $page = $request->input('page')?(int) $request->input('page') : 1;
         $limit = $request->input('limit')?(int) $request->input('limit') : 10;
         $skip = ($page-1) * $limit;
