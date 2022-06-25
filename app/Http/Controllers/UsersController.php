@@ -140,9 +140,11 @@ class UsersController extends Controller
         if($user->email !== $request->input('email')){
             $emailAlreadyExist = User::where('email', '=', $request->input('email'))->first();
             if($emailAlreadyExist){
-                return response()->json([
-                    'message' => 'Email is already exist!'
-                ], 400);
+                if(!($emailAlreadyExist->googleId || $emailAlreadyExist->facebookId)){
+                    return response()->json([
+                        'message' => 'Email is already exist!'
+                    ], 400);
+                }
             }
         }
         if($user->googleId || $user->facebookId){
