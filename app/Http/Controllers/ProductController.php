@@ -125,7 +125,7 @@ class ProductController extends Controller
         $query = new Product;
         if($request->filled('search')){
             $search = $request->input('search');
-            $query = $query->where('id', $search)
+            $query = $query->where('id', is_numeric($search)?$search:null)
                 ->orWhere('name', 'like', '%'.$search.'%')
                 ->orWhere('author', 'like', '%'.$search.'%')
                 ->orWhere('publisher', 'like', '%'.$search.'%')
